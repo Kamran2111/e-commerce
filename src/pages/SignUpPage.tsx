@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useId } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootStat } from "../store/store";
 import { Formik, Field, Form, ErrorMessage } from "formik";
@@ -11,14 +11,16 @@ import Spinner from "../common/Spinner";
 import useTogglePasswordVisibility from "../hooks/useVisiblePassword";
 
 const SignUpScheme = Yup.object().shape({
-  email: Yup.string().email("Must be a valid email").required("Required"),
+  email: Yup.string()
+    .email("Должен быть действительный адрес электронной почты")
+    .required("Необходимый"),
   password: Yup.string()
-    .min(4, "Password must be at least 4 characters")
-    .max(12, "Password must be less than 12 characters")
-    .required("Required"),
+    .min(4, "Пароль должен содержать не менее 4 символов.")
+    .max(12, "Пароль должен быть короче 12 символов")
+    .required("Необходимый"),
   confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password")], "The passwords do not match")
-    .required("Required"),
+    .oneOf([Yup.ref("password")], "Пароли не совпадают")
+    .required("Необходимый"),
 });
 
 const initialValues: ISignUp = {
@@ -56,6 +58,11 @@ const SignUpPage: React.FC = () => {
       console.error("Ошибка регистрации:", error);
     }
   };
+  const emailId = useId();
+  const passwordId = useId();
+  const confirmPasswordId = useId();
+  const nameId = useId();
+  const avatarId = useId();
 
   return (
     <section className="relative flex flex-col items-center justify-center m-16">
@@ -85,7 +92,7 @@ const SignUpPage: React.FC = () => {
 
                 <div>
                   <div>
-                    <label className="block text-sm mb-1" htmlFor="email">
+                    <label className="block text-sm mb-1" htmlFor={emailId}>
                       Email address
                     </label>
                     <Field
@@ -93,7 +100,7 @@ const SignUpPage: React.FC = () => {
                       type="email"
                       name="email"
                       placeholder="Enter email address"
-                      id="email"
+                      id={emailId}
                     />
                     <ErrorMessage
                       className="text-red-500 mt-1 text-sm"
@@ -103,7 +110,7 @@ const SignUpPage: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm mb-1" htmlFor="password">
+                    <label className="block text-sm mb-1" htmlFor={passwordId}>
                       Password
                     </label>
                     <Field
@@ -111,7 +118,7 @@ const SignUpPage: React.FC = () => {
                       type={isPasswordVisible ? "text" : "password"}
                       name="password"
                       placeholder="Enter your password"
-                      id="password"
+                      id={passwordId}
                     />
                     <ErrorMessage
                       className="text-red-500 mt-1 text-sm"
@@ -123,7 +130,7 @@ const SignUpPage: React.FC = () => {
                   <div>
                     <label
                       className="block text-sm mb-1"
-                      htmlFor="confirmPassword"
+                      htmlFor={confirmPasswordId}
                     >
                       Confirm Password
                     </label>
@@ -132,7 +139,7 @@ const SignUpPage: React.FC = () => {
                       type={isPasswordVisible ? "text" : "password"}
                       name="confirmPassword"
                       placeholder="Confirm your password"
-                      id="confirmPassword"
+                      id={confirmPasswordId}
                     />
                     <ErrorMessage
                       className="text-red-500 mt-1 text-sm"
@@ -142,7 +149,7 @@ const SignUpPage: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm mb-1" htmlFor="name">
+                    <label className="block text-sm mb-1" htmlFor={nameId}>
                       Name
                     </label>
                     <Field
@@ -150,7 +157,7 @@ const SignUpPage: React.FC = () => {
                       type="text"
                       name="name"
                       placeholder="Enter your name"
-                      id="name"
+                      id={nameId}
                     />
                     <ErrorMessage
                       className="text-red-500 mt-1 text-sm"
@@ -160,7 +167,7 @@ const SignUpPage: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm mb-1" htmlFor="avatar">
+                    <label className="block text-sm mb-1" htmlFor={avatarId}>
                       Avatar URL
                     </label>
                     <Field
@@ -168,7 +175,7 @@ const SignUpPage: React.FC = () => {
                       type="text"
                       name="avatar"
                       placeholder="Enter avatar URL"
-                      id="avatar"
+                      id={avatarId}
                     />
                     <ErrorMessage
                       className="text-red-500 mt-1 text-sm"

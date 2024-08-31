@@ -1,5 +1,6 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+import Loader from "./common/Loader";
 import SharedLayout from "./components/SharedLayout/SharedLayout ";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
@@ -14,28 +15,37 @@ const FavoritePage = lazy(() => import("./pages/FavoritePage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 const App: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const handleAnimationComplete = () => {
+      setIsLoading(false);
+    };
+    const timeoutId = setTimeout(handleAnimationComplete, 3000);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
+
   return (
-    <Suspense
-      fallback={
-        <div className="flex items-center justify-center h-[100vh] text-[50px]">
-          ...Loading
-        </div>
-      }
-    >
-      <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route index element={<SignInPage />} />
-          <Route path="/регистрация" element={<SignUpPage />} />
-          <Route path="/главная" element={<HomePage />} />
-          <Route path="/контакты" element={<ContactsPage />} />
-          <Route path="/онас" element={<AboutUsPage />} />
-          <Route path="/корзина" element={<CartPage />} />
-          <Route path="/коллекция" element={<SeeCollectionPage />} />
-          <Route path="/product/:id" element={<ProductDetailPage />} />
-          <Route path="/избранные" element={<FavoritePage />} />
-        </Route>
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+    <Suspense fallback={<Loader onComplete={() => setIsLoading(false)} />}>
+      {isLoading ? (
+        <Loader onComplete={() => setIsLoading(false)} />
+      ) : (
+        <Routes>
+          <Route path="/" element={<SharedLayout />}>
+            <Route index element={<SignInPage />} />
+            <Route path="/регистрация" element={<SignUpPage />} />
+            <Route path="/главная" element={<HomePage />} />
+            <Route path="/контакты" element={<ContactsPage />} />
+            <Route path="/онас" element={<AboutUsPage />} />
+            <Route path="/корзина" element={<CartPage />} />
+            <Route path="/коллекция" element={<SeeCollectionPage />} />
+            <Route path="/product/:id" element={<ProductDetailPage />} />
+            <Route path="/избранные" element={<FavoritePage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
+        </Routes>
+      )}
     </Suspense>
   );
 };

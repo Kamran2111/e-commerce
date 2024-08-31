@@ -13,7 +13,6 @@ import { MdOutlineShoppingBag } from "react-icons/md";
 import { IoMenu } from "react-icons/io5";
 import { FiUser } from "react-icons/fi";
 import { CiLogin, CiLogout } from "react-icons/ci";
-import useIsMobile from "../../hooks/useAccountMobile";
 import { TbShoppingCartHeart } from "react-icons/tb";
 
 const Header = () => {
@@ -24,11 +23,10 @@ const Header = () => {
   const navigate = useNavigate();
   const accountRef = useRef<HTMLDivElement | null>(null);
   const menuActive = useSelector((state: RootStat) => state.menu.isActive);
-  const isMobile = useIsMobile(); // Используйте кастомный хук
 
   const items: MenuItem[] = [
     { id: 1, value: "Главная", href: "/главная", icon: <TiHomeOutline /> },
-    { id: 2, value: "О нас", href: "/Онас", icon: <FaInfo /> },
+    { id: 2, value: "О нас", href: "/онас", icon: <FaInfo /> },
     { id: 3, value: "Контакты", href: "/контакты", icon: <GrContactInfo /> },
   ];
 
@@ -130,7 +128,7 @@ const Header = () => {
           <div>
             <button
               onClick={() => navigate("/корзина")}
-              className="relative text-white text-2xl cursor-pointer"
+              className="relative text-white text-2xl cursor-pointer hover:text-gray-400 transition-colors duration-200"
             >
               <MdOutlineShoppingBag />
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
@@ -142,7 +140,7 @@ const Header = () => {
           <div>
             <button
               onClick={() => navigate("/избранные")}
-              className="relative text-white text-2xl cursor-pointer"
+              className="relative text-white text-2xl cursor-pointer hover:text-gray-400 transition-colors duration-200"
             >
               <TbShoppingCartHeart />
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">

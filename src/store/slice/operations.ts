@@ -31,7 +31,6 @@ export const fetchCollectionProducts = createAsyncThunk<Products[]>(
     }
   }
 );
-// -------------------------------------
 export const login = createAsyncThunk(
   "auth/login",
   async (

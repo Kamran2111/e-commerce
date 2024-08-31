@@ -6,11 +6,11 @@ import iconTwitter from "../../assets/images/icons-Twitter.png";
 import { TiHomeOutline } from "react-icons/ti";
 import { FaInfo } from "react-icons/fa";
 import { GrContactInfo } from "react-icons/gr";
-
+import ScrollToTop from "react-scroll-to-top";
+import { FaAnchor } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className="bg-black text-white py-8">
-      
       <section className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Контактная информация */}
@@ -49,7 +49,7 @@ const Footer = () => {
                 <TiHomeOutline />
               </NavLink>
               <NavLink
-                to="/Онас"
+                to="/онас"
                 className="text-center mb-2 flex items-center gap-2 hover:text-red-400 transition-colors"
               >
                 О нас
@@ -71,7 +71,6 @@ const Footer = () => {
               href="https://facebook.com/yourpage"
               aria-label="Facebook"
               target="_blank"
-              rel="noopener noreferrer"
             >
               <img
                 src={iconFacebook}
@@ -83,7 +82,6 @@ const Footer = () => {
               href="https://twitter.com/yourpage"
               aria-label="Twitter"
               target="_blank"
-              rel="noopener noreferrer"
             >
               <img
                 src={iconTwitter}
@@ -95,7 +93,6 @@ const Footer = () => {
               href="https://instagram.com/yourpage"
               aria-label="Instagram"
               target="_blank"
-              rel="noopener noreferrer"
             >
               <img
                 src={iconInstagram}
@@ -115,6 +112,23 @@ const Footer = () => {
         <h1 className="text-lg text-white uppercase text-center font-montserrat">
           гардероб джентельмена
         </h1>
+        <ScrollToTop
+          smooth
+          color="#000"
+          top={300}
+          component={<FaAnchor className="text-2xl" />}
+          style={{
+            width: "40px",
+            height: "40px",
+            color: "#992121",
+            borderRadius: "50%",
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            border: "3px solid #000",
+          }}
+        />
       </section>
     </footer>
   );

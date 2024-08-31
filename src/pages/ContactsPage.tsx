@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useId } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Modal from "../common/Modal";
@@ -17,17 +17,17 @@ const validationSchema = Yup.object({
 const Contacts = () => {
   const { isOpen, openModal, closeModal } = useModal();
 
-  const handleSubmit = (
-    values: any,
-    { resetForm }: { resetForm: () => void }
-  ) => {
-    console.log(values);
-    resetForm();
+  const handleSubmit = (values: any) => {
+    values.name = "";
+    values.email = "";
+    values.message = "";
     openModal();
   };
-
+  const nameId = useId();
+  const emailId = useId();
+  const messageId = useId();
   return (
-    <section className="pt-16 px-4 md:px-8 lg:px-16 bg-gray-100">
+    <section className="pt-20 pb-10 px-4 md:px-8 lg:px-16 bg-gray-100">
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-3xl md:text-4xl font-bold mb-8 text-gray-800">
           Контакты
@@ -47,13 +47,13 @@ const Contacts = () => {
           <Form className="space-y-6">
             <div>
               <label
-                htmlFor="name"
+                htmlFor={nameId}
                 className="block text-lg font-medium text-gray-700"
               >
                 Имя
               </label>
               <Field
-                id="name"
+                id={nameId}
                 name="name"
                 placeholder="Введите ваше имя"
                 className="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
@@ -67,13 +67,13 @@ const Contacts = () => {
 
             <div>
               <label
-                htmlFor="email"
+                htmlFor={emailId}
                 className="block text-lg font-medium text-gray-700"
               >
                 Электронная почта
               </label>
               <Field
-                id="email"
+                id={emailId}
                 name="email"
                 type="email"
                 placeholder="Введите ваш email"
@@ -88,13 +88,13 @@ const Contacts = () => {
 
             <div>
               <label
-                htmlFor="message"
+                htmlFor={messageId}
                 className="block text-lg font-medium text-gray-700"
               >
                 Сообщение
               </label>
               <Field
-                id="message"
+                id={messageId}
                 name="message"
                 as="textarea"
                 placeholder="Введите ваше сообщение"

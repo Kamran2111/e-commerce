@@ -9,7 +9,7 @@ const Content = () => {
 
   return (
     <section className="relative h-screen">
-      <div className="bg-custom-img relative h-screen sm:h-screen  bg-cover bg-center bg-no-repeat"></div>
+      <div className="bg-custom-img relative h-screen sm:h-screen object-center bg-cover bg-center bg-no-repeat"></div>
 
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-center bg-black/50 backdrop-blur-sm p-4 md:p-6 lg:p-8 rounded-lg">

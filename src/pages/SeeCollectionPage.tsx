@@ -12,6 +12,7 @@ import LazyLoad from "react-lazyload";
 import { toggleFavorite } from "../store/slice/favoritesSlice";
 import { RiHeartAdd2Line } from "react-icons/ri";
 import { RxHeartFilled } from "react-icons/rx";
+import { motion } from "framer-motion";
 
 const SeeCollection = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -53,7 +54,7 @@ const SeeCollection = () => {
       )}
       <SeeCollectionContent />
 
-      <div className="text-center mb-6">
+      <div className="text-center m-10">
         <h2 className="text-2xl font-bold mb-4 pb-2 border-b-4 border-gray-500">
           Коллекция
         </h2>
@@ -105,8 +106,16 @@ const SeeCollection = () => {
               const isFavorite = favorites.includes(product.id);
 
               return (
-                <li
-                  className="relative flex flex-col items-center bg-white p-4 rounded shadow transition-transform duration-500 transform hover:scale-105 hover:shadow-lg"
+                <motion.li
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{
+                    duration: 0.1,
+                    ease: [0.42, 0, 0.58, 1],
+                    delay: 0.1,
+                  }}
+                  className="relative flex flex-col items-center bg-white p-4 rounded shadow transition-transform duration-200 transform hover:scale-300 hover:shadow-lg"
                   key={product.id}
                 >
                   <Link to={`/product/${product.id}`} className="block">
@@ -120,10 +129,14 @@ const SeeCollection = () => {
                     </LazyLoad>
                   </Link>
                   <button
-                    className="absolute top-0 right-0"
+                    className="absolute top-4 right-4"
                     onClick={() => dispatch(toggleFavorite(product.id))}
                   >
-                    {isFavorite ? <RxHeartFilled /> : <RiHeartAdd2Line />}
+                    {isFavorite ? (
+                      <RxHeartFilled className="text-xl" />
+                    ) : (
+                      <RiHeartAdd2Line className="text-xl" />
+                    )}
                   </button>
                   <p className="font-bold mt-3 mb-2 text-center uppercase border-b-2 border-gray-300">
                     {product.name}
@@ -132,7 +145,7 @@ const SeeCollection = () => {
                     <ExpandableText text={product.title} />
                   </div>
                   <p className="text-gray-600">${product.price}</p>
-                </li>
+                </motion.li>
               );
             })
           ) : (

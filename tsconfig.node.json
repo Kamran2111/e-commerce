@@ -7,7 +7,11 @@
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "noEmit": true
+    "noEmit": true,
+    "jsx": "react",
+    "lib": ["dom", "esnext"],
+    "target": "es5",
+    "module": "esnext"
   },
   "include": ["vite.config.ts"]
 }

@@ -23,9 +23,7 @@ const ProductDetail = () => {
   const [product, setProduct] = useState<Products | null>(null);
   const [, setItems] = useState<Products[]>([]);
   const [size, setSize] = useState<string>("");
-  const { isLoading, error } = useSelector(
-    (state: RootStat) => state.products
-  );
+  const { isLoading, error } = useSelector((state: RootStat) => state.products);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

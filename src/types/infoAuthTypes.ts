@@ -19,8 +19,3 @@ export interface IError {
   message: string;
   code: number;
 }
-
-// export interface CustomErrorMessageProps {
-//   message: string;
-//   name: string;
-// }
