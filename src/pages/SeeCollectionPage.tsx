@@ -118,7 +118,7 @@ const SeeCollection = () => {
                   className="relative flex flex-col items-center bg-white p-4 rounded shadow transition-transform duration-200 transform hover:scale-300 hover:shadow-lg"
                   key={product.id}
                 >
-                  <Link to={`/product/${product.id}`} className="block">
+                  <Link to={`/продукт/${product.id}`} className="block">
                     <LazyLoad height={200} offset={100}>
                       <img
                         src={product.image}

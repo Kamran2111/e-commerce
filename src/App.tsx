@@ -40,7 +40,7 @@ const App: React.FC = () => {
             <Route path="/онас" element={<AboutUsPage />} />
             <Route path="/корзина" element={<CartPage />} />
             <Route path="/коллекция" element={<SeeCollectionPage />} />
-            <Route path="/product/:id" element={<ProductDetailPage />} />
+            <Route path="/продукт/:id" element={<ProductDetailPage />} />
             <Route path="/избранные" element={<FavoritePage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>

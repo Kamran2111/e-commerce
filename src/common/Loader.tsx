@@ -26,7 +26,7 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
 
   return (
     <div className="loader fixed left-0 top-0 w-full h-full bg-white z-5 flex ">
-      <div className="loader_title absolute left-[50%] top-[50%] transform translate-x-[-50%] translate-y-[-50%] font-semibold text-base md:text-4xl  z-6">
+      <div className="loader_title absolute left-[50%] top-[50%] transform translate-x-[-50%] translate-y-[-50%] font-normal text-base md:text-4xl  z-6">
         Гардероб джентльмена
       </div>
       <div className="loader_item flex-auto z-7 border-r border-[1px] bg-green-950 border-black loader_item1"></div>

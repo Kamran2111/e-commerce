@@ -14,8 +14,8 @@ const AboutUs = () => {
       {isLoading && <Spinner />}
       {error && (
         <CustomErrorMessage
-          name="Продукт"
-          message="Ошибка загрузки информации о продукте"
+          name="Иноформация"
+          message="Ошибка загрузки информации"
         />
       )}
       <div className="max-w-4xl mx-auto text-center">

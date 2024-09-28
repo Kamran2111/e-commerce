@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchProducts } from "./operations";
 
-// Определите интерфейс для продукта
 export interface Product {
   id: number;
   name: string;
