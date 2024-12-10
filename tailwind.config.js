@@ -1,7 +1,7 @@
-const plugin = require("tailwindcss/plugin");
+import plugin from "tailwindcss/plugin";
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
@@ -30,7 +30,6 @@ module.exports = {
       backgroundColor: {
         bgAll: "#808585",
       },
-
       backgroundImage: {
         "custom-img": 'url("../src/assets/images/content.jpg")',
         "custom-img-two": 'url("./src/assets/images/collection-image.jpg")',
@@ -50,7 +49,7 @@ module.exports = {
     },
   },
   plugins: [
-    plugin(function ({ addUtilities }) {
+    plugin(({ addUtilities }) => {
       const newUtilities = {
         ".border-animation": {
           position: "relative",

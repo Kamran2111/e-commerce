@@ -1,4 +1,3 @@
-import React from "react";
 import QRCode from "qrcode.react";
 import imgAbout from "../assets/images/aboutUs-img.jpg";
 import Spinner from "../common/Spinner";

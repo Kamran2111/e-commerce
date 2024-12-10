@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect, useCallback } from "react";
+import { useMemo, useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootStat } from "../store/store";
 import { fetchCollectionProducts } from "../store/slice/operations";
@@ -20,12 +20,7 @@ const SeeCollection = () => {
   const { items, error, isLoading } = useSelector(
     (state: RootStat) => state.products
   );
-  const [, setSize] = useState<string>("");
   const favorites = useSelector((state: RootStat) => state.favorites.favorite);
-
-  const handleSizeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSize(event.target.value);
-  };
 
   useEffect(() => {
     dispatch(fetchCollectionProducts());

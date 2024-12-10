@@ -1,4 +1,4 @@
-import React, { useId } from "react";
+import { useId } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootStat } from "../store/store";
 import { Formik, Field, Form, ErrorMessage } from "formik";
@@ -33,8 +33,7 @@ const initialValues: ISignUp = {
 
 const SignUpPage: React.FC = () => {
   const { isLoading } = useSelector((state: RootStat) => state.user);
-  const { isPasswordVisible, togglePasswordVisibility } =
-    useTogglePasswordVisibility();
+  const { isPasswordVisible } = useTogglePasswordVisibility();
 
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const useHoverImage = (initialImage: string, hoverImage: string) => {
   const [currentImage, setCurrentImage] = useState(initialImage);

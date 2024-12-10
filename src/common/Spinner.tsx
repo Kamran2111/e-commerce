@@ -1,5 +1,3 @@
-import React from "react";
-
 const Spinner: React.FC = () => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">

@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootStat } from "../store/store";
 import { toggleFavorite } from "../store/slice/favoritesSlice";
