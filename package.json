@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "start": "vite preview",
+    "start": "node index.js",
     "serve-json": "json-server --watch db.json --port 5000"
   },
   "dependencies": {
@@ -22,6 +22,7 @@
     "formik": "^2.4.6",
     "framer-motion": "^11.3.31",
     "gsap": "^3.12.5",
+    "json-serve": "^0.1.0",
     "json-server": "^1.0.0-beta.1",
     "lucide-react": "^0.424.0",
     "prop-types": "^15.8.1",
