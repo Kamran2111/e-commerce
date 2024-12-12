@@ -32,7 +32,7 @@ export default {
       },
       backgroundImage: {
         "custom-img": 'url("../src/assets/images/content.jpg")',
-        "custom-img-two": 'url("./src/assets/images/collection-image.jpg")',
+        // "custom-img-two": 'url("./src/assets/images/collection-image.jpg")',
       },
       backgroundSize: {
         cover: "cover",

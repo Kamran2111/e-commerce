@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { Products } from "../../types/productsType";
+
 axios.defaults.baseURL = "http://localhost:5000";
 
 export const fetchProducts = createAsyncThunk<Products[]>(
