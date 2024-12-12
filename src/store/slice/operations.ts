@@ -2,14 +2,13 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { Products } from "../../types/productsType";
 
-axios.defaults.baseURL = "https://products-data-liart.vercel.app";
+axios.defaults.baseURL = "http://localhost:5000";
 
 export const fetchProducts = createAsyncThunk<Products[]>(
   "products/fetchProducts",
   async (_, thunkApi) => {
     try {
-      // Путь к файлу db.json
-      const response = await axios.get("/db.json");
+      const response = await axios.get("/products");
       return response.data;
     } catch (error: unknown) {
       if (error instanceof Error) {
@@ -19,12 +18,11 @@ export const fetchProducts = createAsyncThunk<Products[]>(
     }
   }
 );
-
 export const fetchCollectionProducts = createAsyncThunk<Products[]>(
-  "products/fetchCollectionProducts",
+  "products/fetchProducts",
   async (_, thunkApi) => {
     try {
-      const response = await axios.get("/productsCollection.json");
+      const response = await axios.get("/productsCollection");
       return response.data;
     } catch (error: unknown) {
       if (error instanceof Error) {
@@ -34,7 +32,6 @@ export const fetchCollectionProducts = createAsyncThunk<Products[]>(
     }
   }
 );
-
 export const login = createAsyncThunk(
   "auth/login",
   async (
