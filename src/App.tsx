@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Loader from "./common/Loader";
-import SharedLayout from "./components/SharedLayout/SharedLayout ";
+import SharedLayout from "../src/components/SharedLayout/SharedLayout";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const ContactsPage = lazy(() => import("./pages/ContactsPage"));
