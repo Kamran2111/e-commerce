@@ -16,7 +16,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useSelector } from "react-redux";
 import { RootStat } from "../store/store";
 import { Button } from "../common/Button";
-axios.defaults.baseURL = "http://localhost:5000/";
+axios.defaults.baseURL = "https://api-products-v604.onrender.com";
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
