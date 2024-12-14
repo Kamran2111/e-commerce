@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { Products } from "../../types/productsType";
 
-axios.defaults.baseURL = "http://localhost:5000";
+axios.defaults.baseURL = "https://api-products-v604.onrender.com";
 
 export const fetchProducts = createAsyncThunk<Products[]>(
   "products/fetchProducts",
