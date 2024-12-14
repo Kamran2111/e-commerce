@@ -10,7 +10,6 @@
     "preview": "vite preview",
     "start": "vite preview",
     "serve-json": "json-server --watch public/db.json --port 5000"
-
   },
   "dependencies": {
     "@react-spring/web": "^9.7.4",
@@ -38,9 +37,6 @@
     "react-scroll-to-top": "^3.0.0",
     "react-slick": "^0.30.2",
     "react-zoom-pan-pinch": "^3.6.1",
-    "serve-json": "^1.0.4",
-    "shadcn-ui": "^0.2.3",
-    "slick-carousel": "^1.8.1",
     "swiper": "^11.1.10",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
